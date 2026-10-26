@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediStore - Project Report</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #E0E0E0;
+            font-family: 'Times New Roman', Times, serif;
+            color: #111111;
+        }
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 15px auto;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            position: relative;
+            page-break-after: always;
+        }
+        @media print {
+            body {
+                background: none;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                min-height: 100vh;
+            }
+        }
+        .page-border {
+            border: 1.5px solid #222222;
+            height: 100%;
+            min-height: 257mm;
+            padding: 16mm 14mm;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .page-number {
+            position: absolute;
+            bottom: 6mm;
+            right: 8mm;
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+            color: #333333;
+        }
+        
+        /* Cover Page Styles */
+        .cover-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        .logo-placeholder {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-placeholder svg {
+            width: 100%;
+            height: 100%;
+        }
+        .institute-title {
+            text-align: center;
+            font-size: 17pt;
+            font-weight: bold;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+        .institute-subtitle {
+            text-align: center;
+            font-size: 12.5pt;
+            margin-top: 4px;
+        }
+        .institute-location {
+            text-align: center;
+            font-size: 12.5pt;
+            font-weight: bold;
+            margin-top: 4px;
+            margin-bottom: 35px;
+        }
+        .dept-title {
+            text-align: center;
+            font-size: 14pt;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 50px;
+        }
+        .project-title {
+            text-align: center;
+            font-size: 18pt;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 60px;
+            line-height: 1.3;
+        }
+        .submitted-by-label {
+            text-align: center;
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        .student-table {
+            width: 90%;
+            margin: 0 auto 50px auto;
+            border-collapse: collapse;
+        }
+        .student-table th {
+            text-align: left;
+            font-size: 12pt;
+            font-weight: bold;
+            padding-bottom: 8px;
+        }
+        .student-table td {
+            text-align: left;
+            font-size: 12pt;
+            font-family: Arial, sans-serif;
+        }
+        .guide-section {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .guide-label {
+            font-size: 13pt;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .guide-name {
+            font-size: 14pt;
+            font-weight: bold;
+        }
+        .course-footer {
+            text-align: center;
+            margin-top: auto;
+            font-size: 13pt;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        /* Content Pages */
+        h1, h2, h3 {
+            font-family: Arial, sans-serif;
+            color: #111111;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        h2.section-heading {
+            font-size: 14pt;
+            font-weight: bold;
+            border-bottom: 1px solid #DDDDDD;
+            padding-bottom: 4px;
+            margin-top: 16px;
+        }
+        p {
+            font-size: 11pt;
+            line-height: 1.55;
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+        ul {
+            margin-top: 4px;
+            margin-bottom: 14px;
+            padding-left: 24px;
+        }
+        li {
+            font-size: 11pt;
+            line-height: 1.55;
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+        .highlight-bold {
+            font-weight: bold;
+        }
+        
+        /* Table Styles */
+        table.tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0 20px 0;
+            font-family: Arial, sans-serif;
+            font-size: 10pt;
+        }
+        table.tech-table th, table.tech-table td {
+            border: 1px solid #333333;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        table.tech-table th {
+            background-color: #F2F2F2;
+            font-weight: bold;
+        }
+
+        /* Code Snippet Styles */
+        pre.code-block {
+            background-color: #FAFAFA;
+            border: 1px solid #E0E0E0;
+            border-radius: 4px;
+            padding: 10px 12px;
+            font-family: 'Consolas', 'Courier New', Courier, monospace;
+            font-size: 9pt;
+            line-height: 1.35;
+            color: #222222;
+            overflow-x: hidden;
+            white-space: pre-wrap;
+            margin: 8px 0 14px 0;
+        }
+        .code-title {
+            font-family: Arial, sans-serif;
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 2px;
+            color: #1A237E;
+        }
+
+        /* Screenshots Grid */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 20px;
+            margin-top: 10px;
+        }
+        .screenshot-card {
+            border: 1px solid #CCCCCC;
+            border-radius: 8px;
+            background: #FAFAFA;
+            padding: 8px;
+            text-align: center;
+        }
+        .mockup-phone {
+            background: #121212;
+            border-radius: 14px;
+            border: 3px solid #2C2C2C;
+            padding: 8px;
+            color: #FFFFFF;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            font-family: Arial, sans-serif;
+            font-size: 8.5pt;
+        }
+        .phone-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 7.5pt;
+            color: #AAAAAA;
+            margin-bottom: 6px;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 3px;
+        }
+        .phone-title {
+            font-size: 10.5pt;
+            font-weight: bold;
+            color: #64B5F6;
+            margin-bottom: 8px;
+        }
+        .phone-body {
+            flex-grow: 1;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 7pt;
+            font-weight: bold;
+            color: white;
+            margin-right: 4px;
+        }
+        .badge-instock { background-color: #2E7D32; }
+        .badge-lowstock { background-color: #E65100; }
+        .badge-expired { background-color: #7B1FA2; }
+        .badge-outstock { background-color: #D32F2F; }
+        
+        .figure-caption {
+            font-family: Arial, sans-serif;
+            font-size: 9pt;
+            font-style: italic;
+            margin-top: 6px;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ================= PAGE 1: COVER PAGE ================= -->
+<div class="page">
+    <div class="page-border">
+        <div class="cover-header">
+            <div class="logo-placeholder">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#1565C0" />
+                    <text x="50" y="58" font-size="28" font-family="Arial" font-weight="bold" fill="white" text-anchor="middle">GCET</text>
+                </svg>
+            </div>
+            <div class="logo-placeholder">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="#00897B" />
+                    <text x="50" y="58" font-size="24" font-family="Arial" font-weight="bold" fill="white" text-anchor="middle">CVMU</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="institute-title">G H Patel College of Engineering &amp; Technology</div>
+        <div class="institute-subtitle">(A Constituent College of CVM University)</div>
+        <div class="institute-location">V. V. Nagar</div>
+
+        <div class="dept-title">INFORMATION TECHNOLOGY DEPARTMENT</div>
+
+        <div class="project-title">MediStore &ndash; Medical Store Management System</div>
+
+        <div class="submitted-by-label">Submitted By</div>
+
+        <table class="student-table">
+            <tr>
+                <th>Name of Student:</th>
+                <th>Enrollment Number:</th>
+            </tr>
+            <tr>
+                <td>Viren Prajapati</td>
+                <td>12302080501064</td>
+            </tr>
+        </table>
+
+        <div class="guide-section">
+            <div class="guide-label">Guided By</div>
+            <div class="guide-name">Dr. Premkumar Balani</div>
+        </div>
+
+        <div class="course-footer">
+            Mobile Application Development (202046712)<br>
+            A.Y. 2026-27 ODD TERM
+        </div>
+    </div>
+</div>
+
+<!-- ================= PAGE 2: INTRODUCTION, PROBLEM STATEMENT, OBJECTIVES ================= -->
+<div class="page">
+    <div class="page-border">
+        <h2 class="section-heading" style="margin-top: 0;">1. Introduction</h2>
+        <p>
+            The <strong>MediStore &ndash; Medical Store Management System</strong> is a native Android application designed to help retail pharmacy and medical store owners completely digitalize their day-to-day operations. The application provides an integrated, robust interface to manage pharmaceutical inventory, track batch numbers and manufacturing/expiry dates, process high-speed over-the-counter sales with automated GST and discounts, manage supplier purchase orders, and monitor customer profiles.
+        </p>
+        <p>
+            By transitioning from conventional manual paper registers to a digital offline-first architecture, medical store managers minimize dispensing errors, prevent the sale of expired medicines, prevent revenue leakage, and gain real-time visibility into overall store health. The application strictly adheres to modern <strong>Material Design 3</strong> principles, supporting both seamless <strong>Dark Mode</strong> and <strong>Light Mode</strong> with role-based accessibility for Store Administrators and Customers.
+        </p>
+
+        <h2 class="section-heading">2. Problem Statement</h2>
+        <p>
+            Numerous retail pharmacies and medical establishments still depend heavily on physical paper ledgers and manual ledger books. This legacy workflow introduces critical operational hazards:
+        </p>
+        <ul>
+            <li><strong>Risk of Dispensing Expired Drugs:</strong> Manually monitoring expiry dates across hundreds of pharmaceutical batches often fails, risking customer health and regulatory penalties.</li>
+            <li><strong>Time-Consuming Billing:</strong> Calculating subtotal, itemized discounts, and 12% GST by hand during peak pharmacy hours causes significant queue delays.</li>
+            <li><strong>Stock-Outs of Critical Medicines:</strong> Without proactive low-stock threshold notifications, pharmacists run out of essential prescription medications unexpectedly.</li>
+            <li><strong>Data Loss &amp; Damage:</strong> Paper registers are prone to physical wear, water damage, misplacement, and lack access security.</li>
+            <li><strong>Absence of Business Analytics:</strong> Store owners cannot instantly view today&rsquo;s gross revenue, monthly margins, or identify top-selling medications.</li>
+        </ul>
+
+        <h2 class="section-heading">3. Objectives</h2>
+        <ul>
+            <li>To replace paper registers with a reliable, structured digital repository for medicines, purchases, sales, suppliers, and customers.</li>
+            <li>To proactively safeguard patient health by classifying medicines into real-time visual statuses (<em>In Stock, Low Stock, Out of Stock, Expired</em>).</li>
+            <li>To accelerate checkout using a streamlined Point of Sale (POS) cart system with automated GST and discount computation.</li>
+            <li>To automate inventory replenishment so sales automatically decrement stock and supplier purchases increment stock.</li>
+            <li>To ensure complete data confidentiality and instantaneous operation by functioning 100% offline via local SQLite Room Database.</li>
+        </ul>
+
+        <h2 class="section-heading">4. Proposed Solution</h2>
+        <p>
+            To address these challenges, <strong>MediStore</strong> was architected as an offline-first Android application powered by Google&rsquo;s Room Persistence Library and Simple MVVM architecture. The system features a dynamic dashboard with live summary cards, proactive notifications for low-stock and upcoming expiries, one-tap restocking, and strict role separation guaranteeing customer users access solely to medicine catalogs while shielding administrative financials.
+        </p>
+        <div class="page-number">89</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 3: TECHNOLOGY STACK & CORE MODULES ================= -->
+<div class="page">
+    <div class="page-border">
+        <h2 class="section-heading" style="margin-top: 0;">5. Technology Stack</h2>
+        <table class="tech-table">
+            <thead>
+                <tr>
+                    <th style="width: 32%;">Component</th>
+                    <th>Technology Used</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Platform</td>
+                    <td>Android Mobile Operating System</td>
+                </tr>
+                <tr>
+                    <td>Programming Language</td>
+                    <td>Java (100% Java &amp; XML Architecture)</td>
+                </tr>
+                <tr>
+                    <td>UI Framework</td>
+                    <td>Android XML, Material Design 3 Components (MaterialCardView, RecyclerView, BottomNavigationView, Extended Toolbar)</td>
+                </tr>
+                <tr>
+                    <td>Local Database</td>
+                    <td>Room Persistence Library (SQLite Object Mapping)</td>
+                </tr>
+                <tr>
+                    <td>Architecture</td>
+                    <td>MVVM (Model-View-ViewModel) with View Binding, LiveData &amp; Repository Pattern</td>
+                </tr>
+                <tr>
+                    <td>Minimum SDK</td>
+                    <td>Android 7.0 (API Level 24 &ndash; Nougat)</td>
+                </tr>
+                <tr>
+                    <td>Target / Compile SDK</td>
+                    <td>Android 14 / 15 (API Level 34 / 35)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-heading">6. Core Modules</h2>
+        <p style="margin-bottom: 4px;"><strong>Database Architecture:</strong></p>
+        <div class="code-title">MEDICINE DAO (MedicineDao.java):</div>
+        <pre class="code-block">package com.medistore.app.data.dao;
+
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+import com.medistore.app.data.entities.Medicine;
+import java.util.List;
+
+@Dao
+public interface MedicineDao {
+
+    @Insert
+    void insertMedicine(Medicine medicine);
+
+    @Update
+    void updateMedicine(Medicine medicine);
+
+    @Delete
+    void deleteMedicine(Medicine medicine);
+
+    @Query("SELECT * FROM medicines ORDER BY name ASC")
+    LiveData&lt;List&lt;Medicine&gt;&gt; getAllMedicines();
+
+    @Query("SELECT * FROM medicines WHERE name LIKE '%' || :query || '%' OR category LIKE '%' || :query || '%' OR manufacturer LIKE '%' || :query || '%' ORDER BY name ASC")
+    LiveData&lt;List&lt;Medicine&gt;&gt; searchMedicines(String query);
+
+    @Query("SELECT * FROM medicines WHERE quantity &lt;= minimumStock AND quantity &gt; 0 ORDER BY quantity ASC")
+    LiveData&lt;List&lt;Medicine&gt;&gt; getLowStockMedicines();
+</pre>
+        <div class="page-number">90</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 4: DATABASE PART (CONTINUED) ================= -->
+<div class="page">
+    <div class="page-border">
+        <pre class="code-block" style="margin-top: 0;">    @Query("SELECT * FROM medicines WHERE quantity = 0 ORDER BY name ASC")
+    LiveData&lt;List&lt;Medicine&gt;&gt; getOutOfStockMedicines();
+
+    @Query("SELECT * FROM medicines WHERE expiryDate &lt; :today ORDER BY expiryDate ASC")
+    LiveData&lt;List&lt;Medicine&gt;&gt; getExpiredMedicines(String today);
+
+    @Query("SELECT * FROM medicines WHERE expiryDate &lt;= :threshold AND expiryDate &gt;= :today ORDER BY expiryDate ASC")
+    LiveData&lt;List&lt;Medicine&gt;&gt; getExpiringSoonMedicines(String today, String threshold);
+
+    @Query("SELECT * FROM medicines WHERE medicineId = :id")
+    Medicine getMedicineByIdSync(int id);
+
+    @Query("UPDATE medicines SET quantity = :newQuantity WHERE medicineId = :medicineId")
+    void updateStock(int medicineId, int newQuantity);
+
+    @Query("SELECT COUNT(*) FROM medicines")
+    int getMedicineCount();
+
+    @Query("SELECT COALESCE(SUM(quantity), 0) FROM medicines")
+    int getTotalStock();
+}
+</pre>
+
+        <div class="code-title">SALES DAO (SaleDao.java):</div>
+        <pre class="code-block">package com.medistore.app.data.dao;
+
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import com.medistore.app.data.entities.Sale;
+import java.util.List;
+
+@Dao
+public interface SaleDao {
+
+    @Insert
+    long insertSale(Sale sale);
+
+    @Delete
+    void deleteSale(Sale sale);
+
+    @Query("SELECT * FROM sales ORDER BY saleId DESC")
+    LiveData&lt;List&lt;Sale&gt;&gt; getAllSales();
+
+    @Query("SELECT * FROM sales ORDER BY saleId DESC LIMIT :limit")
+    LiveData&lt;List&lt;Sale&gt;&gt; getRecentSales(int limit);
+
+    @Query("SELECT COALESCE(SUM(total), 0) FROM sales WHERE saleDate LIKE :today || '%'")
+    double getTodaySalesTotal(String today);
+
+    @Query("SELECT COALESCE(SUM(total), 0) FROM sales")
+    double getTotalRevenue();
+}
+</pre>
+        <div class="page-number">91</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 5: PURCHASE DAO & MAIN ACTIVITY START ================= -->
+<div class="page">
+    <div class="page-border">
+        <div class="code-title" style="margin-top: 0;">PURCHASE DAO (PurchaseDao.java):</div>
+        <pre class="code-block">package com.medistore.app.data.dao;
+
+import androidx.lifecycle.LiveData;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Insert;
+import androidx.room.Query;
+import androidx.room.Update;
+import com.medistore.app.data.entities.Purchase;
+import java.util.List;
+
+@Dao
+public interface PurchaseDao {
+
+    @Insert
+    long insertPurchase(Purchase purchase);
+
+    @Update
+    void updatePurchase(Purchase purchase);
+
+    @Delete
+    void deletePurchase(Purchase purchase);
+
+    @Query("SELECT * FROM purchases ORDER BY purchaseId DESC")
+    LiveData&lt;List&lt;Purchase&gt;&gt; getAllPurchases();
+
+    @Query("SELECT * FROM purchases WHERE medicineName LIKE '%' || :query || '%' OR supplierName LIKE '%' || :query || '%' ORDER BY purchaseId DESC")
+    LiveData&lt;List&lt;Purchase&gt;&gt; searchPurchases(String query);
+}
+</pre>
+
+        <div class="code-title">MAIN ACTIVITY (MainActivity.java):</div>
+        <pre class="code-block">package com.medistore.app.ui.main;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
+import com.medistore.app.R;
+import com.medistore.app.databinding.ActivityMainBinding;
+import com.medistore.app.ui.login.LoginActivity;
+import com.medistore.app.utils.Constants;
+
+public class MainActivity extends AppCompatActivity {
+    private ActivityMainBinding binding;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        SharedPreferences sharedPreferences = getSharedPreferences(
+                Constants.PREF_NAME, Context.MODE_PRIVATE);
+        if (!sharedPreferences.getBoolean(Constants.KEY_IS_LOGGED_IN, false)) {
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+            return;
+        }
+</pre>
+        <div class="page-number">92</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 6: MAIN ACTIVITY (CONTINUED) ================= -->
+<div class="page">
+    <div class="page-border">
+        <pre class="code-block" style="margin-top: 0;">        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
+        if (navHostFragment != null) {
+            NavController navController = navHostFragment.getNavController();
+            NavigationUI.setupWithNavController(binding.bottomNav, navController);
+        }
+
+        // Role-Based Access Control: Hide Cashier & Inventory tabs for Customers
+        String role = sharedPreferences.getString("user_role", "Store Administrator");
+        if ("Customer".equalsIgnoreCase(role)) {
+            binding.bottomNav.getMenu().findItem(R.id.nav_sales).setVisible(false);
+            binding.bottomNav.getMenu().findItem(R.id.nav_inventory).setVisible(false);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
+        if (navHostFragment != null) {
+            NavController navController = navHostFragment.getNavController();
+            if (navController.getCurrentDestination() != null &amp;&amp;
+                    navController.getCurrentDestination().getId() == R.id.nav_dashboard) {
+                finishAffinity();
+            } else {
+                super.onBackPressed();
+            }
+        } else {
+            super.onBackPressed();
+        }
+    }
+}
+</pre>
+
+        <div class="code-title">POINT OF SALE BILLING (AddSaleActivity.java):</div>
+        <pre class="code-block">package com.medistore.app.ui.sales;
+
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.medistore.app.data.entities.Medicine;
+import com.medistore.app.data.entities.Sale;
+import com.medistore.app.data.entities.SaleItem;
+import com.medistore.app.data.model.CartItem;
+import com.medistore.app.databinding.ActivityAddSaleBinding;
+import com.medistore.app.utils.CurrencyUtils;
+import com.medistore.app.utils.DateUtils;
+import com.medistore.app.viewmodel.SalesViewModel;
+import java.util.ArrayList;
+import java.util.List;
+</pre>
+        <div class="page-number">93</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 7: ADD SALE ACTIVITY (CONTINUED) ================= -->
+<div class="page">
+    <div class="page-border">
+        <pre class="code-block" style="margin-top: 0;">public class AddSaleActivity extends AppCompatActivity {
+    private ActivityAddSaleBinding binding;
+    private SalesViewModel viewModel;
+    private CartAdapter cartAdapter;
+    private Medicine selectedMedicine;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityAddSaleBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        viewModel = new ViewModelProvider(this).get(SalesViewModel.class);
+
+        setupToolbar();
+        setupCartRecyclerView();
+        setupDefaultCustomer();
+        setupObservers();
+        setupListeners();
+    }
+
+    private void setupDefaultCustomer() {
+        // Instant Walk-in selection for routine pharmacy sales
+        binding.etCustomerName.setText("Walk-in Customer");
+        binding.etCustomerPhone.setText("");
+    }
+
+    private void setupListeners() {
+        binding.btnWalkinCustomer.setOnClickListener(v -&gt; setupDefaultCustomer());
+
+        binding.acMedicine.setOnItemClickListener((parent, view, position, id) -&gt; {
+            selectedMedicine = (Medicine) parent.getItemAtPosition(position);
+            if (selectedMedicine != null) {
+                binding.layoutSelectedMedicineInfo.setVisibility(View.VISIBLE);
+                binding.tvSelectedMedName.setText(selectedMedicine.getName());
+                binding.tvSelectedMedPrice.setText(CurrencyUtils.formatCurrency(
+                        selectedMedicine.getSellingPrice()) + " / unit");
+                binding.tvMedicineInfo.setText("Category: " + selectedMedicine.getCategory() 
+                        + " &bull; Stock: " + selectedMedicine.getQuantity() + " available");
+            }
+        });
+
+        binding.btnQtyMinus.setOnClickListener(v -&gt; {
+            int current = getEnteredQty();
+            if (current &gt; 1) binding.etMedicineQty.setText(String.valueOf(current - 1));
+        });
+
+        binding.btnQtyPlus.setOnClickListener(v -&gt; {
+            int current = getEnteredQty();
+            if (selectedMedicine != null &amp;&amp; current &gt;= selectedMedicine.getQuantity()) {
+                Toast.makeText(this, "Maximum available stock reached", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            binding.etMedicineQty.setText(String.valueOf(current + 1));
+        });
+</pre>
+        <div class="page-number">94</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 8: ADD SALE ACTIVITY (CONTINUED) ================= -->
+<div class="page">
+    <div class="page-border">
+        <pre class="code-block" style="margin-top: 0;">        binding.btnAddCart.setOnClickListener(v -&gt; {
+            if (selectedMedicine == null) {
+                Toast.makeText(this, "Select a medicine first", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            int qty = getEnteredQty();
+            if (qty &gt; selectedMedicine.getQuantity()) {
+                Toast.makeText(this, "Quantity exceeds available stock", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            viewModel.addToCart(selectedMedicine, qty);
+            binding.acMedicine.setText("");
+            binding.layoutSelectedMedicineInfo.setVisibility(View.GONE);
+            binding.etMedicineQty.setText("1");
+            selectedMedicine = null;
+        });
+
+        binding.etDiscount.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
+                updateSummary();
+            }
+            @Override public void afterTextChanged(Editable s) {}
+        });
+
+        binding.btnGenerateBill.setOnClickListener(v -&gt; generateBill());
+    }
+
+    private void updateSummary() {
+        double subtotal = viewModel.calculateSubtotal();
+        String discountStr = binding.etDiscount.getText().toString().trim();
+        double discount = discountStr.isEmpty() ? 0 : Double.parseDouble(discountStr);
+        double gst = 12.0;
+        double total = viewModel.calculateTotal(discount, gst);
+
+        binding.tvSubtotal.setText(CurrencyUtils.formatCurrency(subtotal));
+        binding.tvGst.setText("12%");
+        binding.tvTotalAmount.setText(CurrencyUtils.formatCurrency(total));
+    }
+
+    private void generateBill() {
+        List&lt;CartItem&gt; cartItems = viewModel.getCartItems().getValue();
+        if (cartItems == null || cartItems.isEmpty()) {
+            Toast.makeText(this, "Cart is empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String invoiceNumber = "INV-" + (System.currentTimeMillis() % 1000000);
+        String paymentMethod = binding.rbUpi.isChecked() ? "UPI" : 
+                               (binding.rbCard.isChecked() ? "Card" : "Cash");
+</pre>
+        <div class="page-number">95</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 9: ADD SALE ACTIVITY (FINISH) & ADD PURCHASE ================= -->
+<div class="page">
+    <div class="page-border">
+        <pre class="code-block" style="margin-top: 0;">        Sale sale = new Sale();
+        sale.setInvoiceNumber(invoiceNumber);
+        sale.setCustomerName(binding.etCustomerName.getText().toString().trim());
+        sale.setCustomerPhone(binding.etCustomerPhone.getText().toString().trim());
+        sale.setSaleDate(DateUtils.getCurrentDateTime());
+        sale.setSubtotal(viewModel.calculateSubtotal());
+        sale.setTotal(viewModel.calculateTotal(getDiscount(), 12.0));
+        sale.setPaymentMethod(paymentMethod);
+
+        List&lt;SaleItem&gt; saleItems = new ArrayList&lt;&gt;();
+        for (CartItem ci : cartItems) {
+            SaleItem si = new SaleItem();
+            si.setMedicineId(ci.getMedicineId());
+            si.setMedicineName(ci.getMedicineName());
+            si.setQuantity(ci.getQuantity());
+            si.setPrice(ci.getPrice());
+            si.setTotal(ci.getTotal());
+            saleItems.add(si);
+        }
+
+        viewModel.insertSaleWithItems(sale, saleItems);
+
+        new MaterialAlertDialogBuilder(this)
+                .setTitle("Bill Generated Successfully")
+                .setMessage("Invoice #: " + invoiceNumber + "\nPayment: " + paymentMethod)
+                .setPositiveButton("Done", (dialog, which) -&gt; finish())
+                .show();
+    }
+}
+</pre>
+
+        <div class="code-title">PURCHASE &amp; RESTOCKING MODULE (AddPurchaseActivity.java):</div>
+        <pre class="code-block">package com.medistore.app.ui.purchase;
+
+import android.app.DatePickerDialog;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import com.medistore.app.data.entities.Medicine;
+import com.medistore.app.data.entities.Purchase;
+import com.medistore.app.data.entities.Supplier;
+import com.medistore.app.databinding.ActivityAddPurchaseBinding;
+import com.medistore.app.utils.CurrencyUtils;
+import com.medistore.app.utils.DateUtils;
+import com.medistore.app.viewmodel.PurchaseViewModel;
+import java.util.Calendar;
+import java.util.Random;
+</pre>
+        <div class="page-number">96</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 10: ADD PURCHASE ACTIVITY (CONTINUED) ================= -->
+<div class="page">
+    <div class="page-border">
+        <pre class="code-block" style="margin-top: 0;">public class AddPurchaseActivity extends AppCompatActivity {
+    private ActivityAddPurchaseBinding binding;
+    private PurchaseViewModel viewModel;
+    private Supplier selectedSupplier;
+    private Medicine selectedMedicine;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityAddPurchaseBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        viewModel = new ViewModelProvider(this).get(PurchaseViewModel.class);
+
+        binding.etDate.setText(DateUtils.getTodayDate());
+        setExpiryYearsAhead(1);
+
+        binding.acMedicine.setOnItemClickListener((parent, view, position, id) -&gt; {
+            selectedMedicine = (Medicine) parent.getItemAtPosition(position);
+            if (selectedMedicine != null) {
+                // Auto pre-fill existing purchase price, batch and expiry
+                binding.etPrice.setText(String.valueOf(selectedMedicine.getPurchasePrice()));
+                if (selectedMedicine.getBatchNumber() != null) {
+                    binding.etBatch.setText(selectedMedicine.getBatchNumber());
+                }
+                if (selectedMedicine.getExpiryDate() != null) {
+                    binding.etExpiry.setText(selectedMedicine.getExpiryDate());
+                }
+                updateCostPreview();
+            }
+        });
+
+        binding.btnAutoBatch.setOnClickListener(v -&gt; {
+            binding.etBatch.setText("BAT-" + (1000 + new Random().nextInt(9000)));
+        });
+
+        binding.btnExpiry1yr.setOnClickListener(v -&gt; setExpiryYearsAhead(1));
+        binding.btnExpiry2yr.setOnClickListener(v -&gt; setExpiryYearsAhead(2));
+
+        binding.etDate.setOnClickListener(v -&gt; showDatePicker(binding.etDate));
+        binding.etExpiry.setOnClickListener(v -&gt; showDatePicker(binding.etExpiry));
+
+        binding.btnSave.setOnClickListener(v -&gt; savePurchase());
+    }
+
+    private void showDatePicker(android.widget.EditText target) {
+        Calendar c = Calendar.getInstance();
+        new DatePickerDialog(this, (view, y, m, d) -&gt; {
+            target.setText(String.format("%02d/%02d/%04d", d, m + 1, y));
+        }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)).show();
+    }
+</pre>
+        <div class="page-number">97</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 11: ADD PURCHASE ACTIVITY (FINISH) ================= -->
+<div class="page">
+    <div class="page-border">
+        <pre class="code-block" style="margin-top: 0;">    private void savePurchase() {
+        if (selectedMedicine == null || selectedSupplier == null) {
+            Toast.makeText(this, "Select both medicine and supplier", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int qty = Integer.parseInt(binding.etQty.getText().toString());
+        double price = Double.parseDouble(binding.etPrice.getText().toString());
+
+        Purchase purchase = new Purchase();
+        purchase.setSupplierId(selectedSupplier.getSupplierId());
+        purchase.setSupplierName(selectedSupplier.getName());
+        purchase.setMedicineId(selectedMedicine.getMedicineId());
+        purchase.setMedicineName(selectedMedicine.getName());
+        purchase.setBatchNumber(binding.etBatch.getText().toString().trim());
+        purchase.setQuantity(qty);
+        purchase.setPurchasePrice(price);
+        purchase.setPurchaseDate(binding.etDate.getText().toString().trim());
+        purchase.setExpiryDate(binding.etExpiry.getText().toString().trim());
+        purchase.setCreatedAt(System.currentTimeMillis());
+
+        // Automatically increments medicine quantity in Room inventory
+        viewModel.insert(purchase);
+
+        Toast.makeText(this, "Stock added to inventory successfully!", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+}
+</pre>
+        <div class="code-title">SESSION &amp; ROLE SECURITY (SessionManager / SharedPreferences):</div>
+        <p>
+            The system employs an offline session manager storing login credentials and authorization roles:
+        </p>
+        <ul>
+            <li><strong>Admin Role:</strong> Full unrestricted access across Dashboard, POS Billing, Stock Management, Purchases, Suppliers, Invoices, Financial Reports, and Store Settings.</li>
+            <li><strong>Customer Role:</strong> Restricted guest catalog mode allowing view-only access to medicine names, dosages, and retail prices while completely hiding purchase rates, supplier data, cashier POS, and store information editing.</li>
+        </ul>
+        <div class="page-number">98</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 12: SYSTEM SCREENSHOTS (PAGE 1) ================= -->
+<div class="page">
+    <div class="page-border">
+        <h2 class="section-heading" style="margin-top: 0;">7. Application Screenshots</h2>
+        
+        <div class="screenshots-grid">
+            <!-- Figure 1: Login -->
+            <div class="screenshot-card">
+                <div class="mockup-phone">
+                    <div class="phone-header"><span>09:41</span><span>📶 🔋 100%</span></div>
+                    <div class="phone-title" style="text-align: center; margin-top: 15px;">🏥 MediStore</div>
+                    <div style="text-align: center; font-size: 8pt; color: #888; margin-bottom: 20px;">Medical Store Management</div>
+                    <div style="background: #1E1E1E; padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                        <div style="color: #64B5F6; font-size: 8pt;">Username</div>
+                        <div style="color: white; font-size: 9pt;">admin</div>
+                    </div>
+                    <div style="background: #1E1E1E; padding: 10px; border-radius: 6px; margin-bottom: 14px;">
+                        <div style="color: #64B5F6; font-size: 8pt;">Password</div>
+                        <div style="color: white; font-size: 9pt;">••••••••</div>
+                    </div>
+                    <div style="background: #1565C0; color: white; text-align: center; padding: 8px; border-radius: 6px; font-weight: bold; margin-top: 10px;">LOGIN</div>
+                    <div style="text-align: center; color: #64B5F6; font-size: 8pt; margin-top: 12px;">New Customer? Register Here</div>
+                </div>
+                <div class="figure-caption">Figure 1: Login Screen</div>
+            </div>
+
+            <!-- Figure 2: Customer Registration -->
+            <div class="screenshot-card">
+                <div class="mockup-phone">
+                    <div class="phone-header"><span>09:41</span><span>📶 🔋 100%</span></div>
+                    <div class="phone-title">Customer Registration</div>
+                    <div style="font-size: 8pt; color: #BBB; margin-bottom: 12px;">Create local patient / customer account</div>
+                    <div style="background: #1E1E1E; padding: 6px 8px; border-radius: 4px; margin-bottom: 6px;">
+                        <span style="color: #888; font-size: 7.5pt;">Full Name:</span> Rajesh Kumar
+                    </div>
+                    <div style="background: #1E1E1E; padding: 6px 8px; border-radius: 4px; margin-bottom: 6px;">
+                        <span style="color: #888; font-size: 7.5pt;">Phone:</span> 9876543210
+                    </div>
+                    <div style="background: #1E1E1E; padding: 6px 8px; border-radius: 4px; margin-bottom: 6px;">
+                        <span style="color: #888; font-size: 7.5pt;">Email / User:</span> rajesh@gmail.com
+                    </div>
+                    <div style="background: #1E1E1E; padding: 6px 8px; border-radius: 4px; margin-bottom: 10px;">
+                        <span style="color: #888; font-size: 7.5pt;">Password:</span> ••••••••
+                    </div>
+                    <div style="background: #00897B; color: white; text-align: center; padding: 8px; border-radius: 6px; font-weight: bold;">REGISTER ACCOUNT</div>
+                </div>
+                <div class="figure-caption">Figure 2: Registration Screen with Role Selection</div>
+            </div>
+
+            <!-- Figure 3: Dashboard Overview -->
+            <div class="screenshot-card">
+                <div class="mockup-phone">
+                    <div class="phone-header"><span>09:41</span><span>📶 🔋 100%</span></div>
+                    <div class="phone-title">MediStore &ndash; Dashboard</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px;">
+                        <div style="background: #1565C0; padding: 6px; border-radius: 6px;">
+                            <div style="font-size: 7pt;">Total Medicines</div>
+                            <div style="font-size: 11pt; font-weight: bold;">15</div>
+                        </div>
+                        <div style="background: #00897B; padding: 6px; border-radius: 6px;">
+                            <div style="font-size: 7pt;">Available Stock</div>
+                            <div style="font-size: 11pt; font-weight: bold;">716 Units</div>
+                        </div>
+                        <div style="background: #E65100; padding: 6px; border-radius: 6px;">
+                            <div style="font-size: 7pt;">Low Stock</div>
+                            <div style="font-size: 11pt; font-weight: bold;">3 Items</div>
+                        </div>
+                        <div style="background: #7B1FA2; padding: 6px; border-radius: 6px;">
+                            <div style="font-size: 7pt;">Expired Drugs</div>
+                            <div style="font-size: 11pt; font-weight: bold;">2 Items</div>
+                        </div>
+                    </div>
+                    <div style="background: #1B5E20; padding: 6px 8px; border-radius: 6px; margin-bottom: 8px;">
+                        <span style="font-size: 7.5pt;">Today's Sales Revenue:</span> <strong>₹ 2,450.00</strong>
+                    </div>
+                </div>
+                <div class="figure-caption">Figure 3: Dashboard Overview</div>
+            </div>
+
+            <!-- Figure 4: Medicine Management -->
+            <div class="screenshot-card">
+                <div class="mockup-phone">
+                    <div class="phone-header"><span>09:41</span><span>📶 🔋 100%</span></div>
+                    <div class="phone-title">Medicine Catalog</div>
+                    <div style="background: #1E1E1E; padding: 6px; border-radius: 6px; margin-bottom: 8px;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <strong>Paracetamol 500mg</strong>
+                            <span class="badge badge-instock">IN STOCK</span>
+                        </div>
+                        <div style="font-size: 7.5pt; color: #AAA;">Qty: 150 | Selling: ₹25.00</div>
+                    </div>
+                    <div style="background: #1E1E1E; padding: 6px; border-radius: 6px; margin-bottom: 8px;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <strong>Metformin 500mg</strong>
+                            <span class="badge badge-lowstock">LOW STOCK</span>
+                        </div>
+                        <div style="font-size: 7.5pt; color: #AAA;">Qty: 10 | Selling: ₹42.00</div>
+                    </div>
+                    <div style="background: #1E1E1E; padding: 6px; border-radius: 6px;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <strong>Cetirizine 10mg</strong>
+                            <span class="badge badge-expired">EXPIRED</span>
+                        </div>
+                        <div style="font-size: 7.5pt; color: #AAA;">Qty: 60 | Exp: 12/08/2026</div>
+                    </div>
+                </div>
+                <div class="figure-caption">Figure 4: Medicine Management &amp; Stock Badges</div>
+            </div>
+        </div>
+        <div class="page-number">99</div>
+    </div>
+</div>
+
+<!-- ================= PAGE 13: SYSTEM SCREENSHOTS (PAGE 2) ================= -->
+<div class="page">
+    <div class="page-border">
+        <h2 class="section-heading" style="margin-top: 0;">7. Application Screenshots (Continued)</h2>
+        
+        <div class="screenshots-grid">
+            <!-- Figure 5: POS Billing -->
+            <div class="screenshot-card">
+                <div class="mockup-phone">
+                    <div class="phone-header"><span>09:41</span><span>📶 🔋 100%</span></div>
+                    <div class="phone-title">New Sale &ndash; POS Billing</div>
+                    <div style="background: #1E1E1E; padding: 5px; border-radius: 4px; margin-bottom: 6px;">
+                        <span style="color: #64B5F6; font-size: 7.5pt;">Customer:</span> Walk-in Customer
+                    </div>
+                    <div style="background: #252525; padding: 6px; border-radius: 4px; margin-bottom: 6px;">
+                        <div style="font-size: 8pt; font-weight: bold;">Paracetamol 500mg</div>
+                        <div style="display: flex; justify-content: space-between; font-size: 7.5pt;">
+                            <span>₹25.00 x 2</span>
+                            <strong>₹50.00</strong>
+                        </div>
+                    </div>
+                    <div style="background: #252525; padding: 6px; border-radius: 4px; margin-bottom: 8px;">
+                        <div style="font-size: 8pt; font-weight: bold;">Amoxicillin 250mg</div>
+                        <div style="display: flex; justify-content: space-between; font-size: 7.5pt;">
+                            <span>₹75.00 x 1</span>
+                            <strong>₹75.00</strong>
+                        </div>
+                    </div>
+                    <div style="border-top: 1px solid #444; padding-top: 4px; font-size: 8pt;">
+                        <div style="display: flex; justify-content: space-between;"><span>Subtotal:</span><span>₹125.00</span></div>
+                        <div style="display: flex; justify-content: space-between;"><span>GST (12%):</span><span>₹15.00</span></div>
+                        <div style="display: flex; justify-content: space-between; color: #64B5F6; font-weight: bold; margin-top: 2px;">
+                            <span>Total:</span><span>₹140.00</span>
+                        </div>
+                    </div>
+                    <div style="background: #1565C0; text-align: center; padding: 6px; border-radius: 4px; font-weight: bold; margin-top: 8px;">GENERATE BILL</div>
+                </div>
+                <div class="figure-caption">Figure 5: Point of Sale (POS) Billing</div>
+            </div>
+
+            <!-- Figure 6: Add Medicine -->
+            <div class="screenshot-card">
+                <div class="mockup-phone">
+                    <div class="phone-header"><span>09:41</span><span>📶 🔋 100%</span></div>
+                    <div class="phone-title">Add / Restock Medicine</div>
+                    <div style="background: #1E1E1E; padding: 5px; border-radius: 4px; margin-bottom: 5px;">
+                        <span style="color: #888; font-size: 7pt;">Medicine Name:</span> Azithromycin 500mg
+                    </div>
+                    <div style="background: #1E1E1E; padding: 5px; border-radius: 4px; margin-bottom: 5px;">
+                        <span style="color: #888; font-size: 7pt;">Category:</span> Tablets
+                    </div>
+                    <div style="background: #1E1E1E; padding: 5px; border-radius: 4px; margin-bottom: 5px;">
+                        <span style="color: #888; font-size: 7pt;">Batch:</span> BAT-9214
+                    </div>
+                    <div style="display: flex; gap: 4px; margin-bottom: 5px;">
+                        <div style="background: #1E1E1E; padding: 5px; border-radius: 4px; flex: 1;">
+                            <span style="color: #888; font-size: 7pt;">Qty:</span> 50
+                        </div>
+                        <div style="background: #1E1E1E; padding: 5px; border-radius: 4px; flex: 1;">
+                            <span style="color: #888; font-size: 7pt;">Min:</span> 10
+                        </div>
+                    </div>
+                    <div style="background: #1E1E1E; padding: 5px; border-radius: 4px; margin-bottom: 8px;">
+                        <span style="color: #888; font-size: 7pt;">Expiry:</span> 15/10/2027
+                    </div>
+                    <div style="background: #00897B; text-align: center; padding: 6px; border-radius: 4px; font-weight: bold;">SAVE MEDICINE</div>
+                </div>
+                <div class="figure-caption">Figure 6: Add Medicine &amp; Restock Form</div>
+            </div>
+
+            <!-- Figure 7: Expiry & Low Stock -->
+            <div class="screenshot-card">
+                <div class="mockup-phone">
+                    <div class="phone-header"><span>09:41</span><span>📶 🔋 100%</span></div>
+                    <div class="phone-title" style="color: #FF7043;">Expiry &amp; Low Stock Alerts</div>
+                    <div style="background: #3E1010; border-left: 3px solid #D32F2F; padding: 6px; border-radius: 4px; margin-bottom: 6px;">
+                        <div style="font-weight: bold; color: #EF5350; font-size: 8pt;">2 Medicines Expired!</div>
+                        <div style="font-size: 7pt; color: #CCC;">Quarantine batch immediately.</div>
+                    </div>
+                    <div style="background: #3E2710; border-left: 3px solid #FF9800; padding: 6px; border-radius: 4px; margin-bottom: 6px;">
+                        <div style="font-weight: bold; color: #FFA726; font-size: 8pt;">Cough Syrup 100ml</div>
+                        <div style="font-size: 7pt; color: #CCC;">Current: 5 | Min Level: 10</div>
+                        <div style="color: #64B5F6; font-size: 7.5pt; margin-top: 2px;">&bull; Tap to Restock</div>
+                    </div>
+                    <div style="background: #3E2710; border-left: 3px solid #FF9800; padding: 6px; border-radius: 4px;">
+                        <div style="font-weight: bold; color: #FFA726; font-size: 8pt;">Vitamin C 500mg</div>
+                        <div style="font-size: 7pt; color: #CCC;">Current: 0 (OUT OF STOCK)</div>
+                    </div>
+                </div>
+                <div class="figure-caption">Figure 7: Expiry &amp; Low Stock Logbook</div>
+            </div>
+
+            <!-- Figure 8: Supplier Management -->
+            <div class="screenshot-card">
+                <div class="mockup-phone">
+                    <div class="phone-header"><span>09:41</span><span>📶 🔋 100%</span></div>
+                    <div class="phone-title">Supplier Directory</div>
+                    <div style="background: #1E1E1E; padding: 6px; border-radius: 4px; margin-bottom: 6px;">
+                        <div style="font-weight: bold;">MedPharm Distributors</div>
+                        <div style="font-size: 7.5pt; color: #AAA;">Agency: HealthCare India</div>
+                        <div style="font-size: 7.5pt; color: #64B5F6;">📞 9876543210</div>
+                    </div>
+                    <div style="background: #1E1E1E; padding: 6px; border-radius: 4px; margin-bottom: 6px;">
+                        <div style="font-weight: bold;">CityMed Wholesale</div>
+                        <div style="font-size: 7.5pt; color: #AAA;">Agency: Gujarat Pharma</div>
+                        <div style="font-size: 7.5pt; color: #64B5F6;">📞 9123456789</div>
+                    </div>
+                    <div style="background: #1565C0; text-align: center; padding: 6px; border-radius: 4px; font-weight: bold; margin-top: 10px;">+ ADD SUPPLIER</div>
+                </div>
+                <div class="figure-caption">Figure 8: Supplier Management Directory</div>
+            </div>
+        </div>
+        <div class="page-number">100</div>
+    </div>
+</div>
+
+</body>
+</html>

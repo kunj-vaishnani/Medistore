@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@color/white" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 1. Customer Selection Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_customer"
+                            app:tint="@color/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Customer Details"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorTextPrimary" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_walkin_customer"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="0dp"
+                            android:text="⚡ Walk-in (Quick)"
+                            android:textSize="12sp"
+                            app:strokeColor="@color/colorPrimary" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:hint="Select or Type Customer Name"
+                        app:startIconDrawable="@drawable/ic_customer">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/etCustomerName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPersonName"
+                            android:textColor="@color/colorTextPrimary" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="Phone Number (Optional)">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCustomerPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="phone"
+                            android:textColor="@color/colorTextPrimary" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 2. Medicine Selector Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_medicine"
+                            app:tint="@color/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Add Medicines to Bill"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorTextPrimary" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Search or Select Medicine"
+                        app:startIconDrawable="@drawable/ic_search">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/acMedicine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorTextPrimary" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Selected Medicine Details & Stepper -->
+                    <LinearLayout
+                        android:id="@+id/layout_selected_medicine_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="12dp"
+                        android:visibility="gone"
+                        android:background="@drawable/search_bg"
+                        android:padding="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:id="@+id/tv_selected_med_name"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Paracetamol 500mg"
+                                android:textStyle="bold"
+                                android:textSize="15sp"
+                                android:textColor="@color/colorTextPrimary" />
+
+                            <TextView
+                                android:id="@+id/tv_selected_med_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="₹25.00"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorPrimary" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvMedicineInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Stock: 150 available"
+                            android:textSize="13sp"
+                            android:textColor="@color/colorTextSecondary" />
+
+                        <!-- Quantity Stepper & Add Button Row -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="12dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Qty:"
+                                android:textSize="14sp"
+                                android:textColor="@color/colorTextPrimary" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_qty_minus"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="8dp"
+                                android:padding="0dp"
+                                android:text="-"
+                                android:textSize="18sp" />
+
+                            <EditText
+                                android:id="@+id/etMedicineQty"
+                                android:layout_width="60dp"
+                                android:layout_height="40dp"
+                                android:layout_marginHorizontal="6dp"
+                                android:gravity="center"
+                                android:inputType="number"
+                                android:text="1"
+                                android:textColor="@color/colorTextPrimary"
+                                android:background="@drawable/search_bg" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btn_qty_plus"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:padding="0dp"
+                                android:text="+"
+                                android:textSize="18sp" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnAddCart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="44dp"
+                                android:text="+ Add to Bill"
+                                android:textSize="14sp"
+                                android:backgroundTint="@color/colorPrimary" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 3. Current Bill Items (Cart) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_sales"
+                            app:tint="@color/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Bill Items"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorTextPrimary" />
+
+                        <TextView
+                            android:id="@+id/tv_cart_count_badge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_status_in_stock"
+                            android:text="0 items"
+                            android:textSize="11sp"
+                            android:textColor="@color/white"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="2dp" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvCart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false" />
+
+                    <TextView
+                        android:id="@+id/tv_empty_cart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="🛒 No medicines added yet.\nSelect a medicine above to add."
+                        android:gravity="center"
+                        android:padding="20dp"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorTextSecondary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 4. Bill Summary & Payment -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Payment &amp; Total"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTextPrimary"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Subtotal -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Subtotal"
+                            android:textColor="@color/colorTextSecondary"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvSubtotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹0.00"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorTextPrimary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Discount Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Discount (%):"
+                            android:textColor="@color/colorTextSecondary"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/etDiscount"
+                            android:layout_width="70dp"
+                            android:layout_height="36dp"
+                            android:gravity="center"
+                            android:inputType="numberDecimal"
+                            android:text="0"
+                            android:textColor="@color/colorTextPrimary"
+                            android:background="@drawable/search_bg"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- GST Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="12dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="GST (12% Included)"
+                            android:textColor="@color/colorTextSecondary"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvGst"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12%"
+                            android:textColor="@color/colorTextPrimary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorDivider"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Grand Total -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Grand Total"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorTextPrimary" />
+
+                        <TextView
+                            android:id="@+id/tvTotalAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="₹0.00"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary" />
+                    </LinearLayout>
+
+                    <!-- Payment Method -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Method"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTextPrimary"
+                        android:layout_marginBottom="8dp" />
+
+                    <RadioGroup
+                        android:id="@+id/rgPayment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbCash"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="💵 Cash"
+                            android:textColor="@color/colorTextPrimary"
+                            android:checked="true" />
+
+                        <RadioButton
+                            android:id="@+id/rbUpi"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="📱 UPI"
+                            android:textColor="@color/colorTextPrimary" />
+
+                        <RadioButton
+                            android:id="@+id/rbCard"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="💳 Card"
+                            android:textColor="@color/colorTextPrimary" />
+                    </RadioGroup>
+
+                    <!-- Complete Sale Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnGenerateBill"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="16dp"
+                        android:text="COMPLETE SALE &amp; GENERATE BILL"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/colorPrimary"
+                        app:cornerRadius="10dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

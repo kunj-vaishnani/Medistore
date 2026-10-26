@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Circle Background -->
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M48,4A44,44 0 1,0 48,92A44,44 0 1,0 48,4Z" />
+    <!-- White Medical Cross -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,24h16v16h16v16h-16v16h-16v-16h-16v-16h16z" />
+</vector>

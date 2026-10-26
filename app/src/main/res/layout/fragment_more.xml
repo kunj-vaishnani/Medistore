@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="More Options"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextPrimary"
+        android:layout_marginBottom="24dp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:useDefaultMargins="true"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false">
+
+        <!-- Purchase -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardPurchase"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp">
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_add" app:tint="?attr/colorPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Purchase" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="@color/colorTextPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Suppliers -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSuppliers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp">
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_share" app:tint="?attr/colorPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Suppliers" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="@color/colorTextPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Customers -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardCustomers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp">
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_myplaces" app:tint="?attr/colorPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Customers" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="@color/colorTextPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Expiry -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardExpiry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp">
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_recent_history" app:tint="?attr/colorPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Expiry" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="@color/colorTextPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Low Stock -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardLowStock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp">
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_info_details" app:tint="?attr/colorPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Low Stock" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="@color/colorTextPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Reports -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardReports"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp">
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_sort_by_size" app:tint="?attr/colorPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reports" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="@color/colorTextPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Settings -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSettings"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp">
+                <ImageView android:layout_width="48dp" android:layout_height="48dp" android:src="@android:drawable/ic_menu_preferences" app:tint="?attr/colorPrimary"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Settings" android:layout_marginTop="8dp" android:textStyle="bold" android:textColor="@color/colorTextPrimary"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </GridLayout>
+
+</LinearLayout>

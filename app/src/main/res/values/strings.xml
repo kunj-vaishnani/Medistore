@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MediStore</string>
+    <string name="app_full_name">Medical Store Management System</string>
+    <string name="welcome_admin">Welcome, Admin</string>
+    <string name="app_version">1.0.0</string>
+
+    <!-- Navigation -->
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_medicines">Medicines</string>
+    <string name="title_sales">Sales</string>
+    <string name="title_inventory">Inventory</string>
+    <string name="title_more">More</string>
+    <string name="title_purchases">Purchases</string>
+    <string name="title_suppliers">Suppliers</string>
+    <string name="title_customers">Customers</string>
+    <string name="title_expiry">Expiry Management</string>
+    <string name="title_low_stock">Low Stock Alerts</string>
+    <string name="title_reports">Reports</string>
+    <string name="title_settings">Settings</string>
+
+    <!-- Login -->
+    <string name="welcome_back">Welcome Back</string>
+    <string name="sign_in_continue">Sign in to continue</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="login">LOGIN</string>
+    <string name="login_hint_text">Default: admin / admin123</string>
+    <string name="invalid_credentials">Invalid username or password</string>
+    <string name="empty_fields">Please enter both username and password</string>
+
+    <!-- Dashboard -->
+    <string name="total_medicines">Total Medicines</string>
+    <string name="available_stock">Available Stock</string>
+    <string name="low_stock">Low Stock</string>
+    <string name="expired">Expired</string>
+    <string name="today_sales">Today\'s Sales</string>
+    <string name="total_customers">Customers</string>
+    <string name="quick_actions">Quick Actions</string>
+    <string name="add_medicine">Add Medicine</string>
+    <string name="new_sale">New Sale</string>
+    <string name="add_purchase">Add Purchase</string>
+    <string name="add_customer">Add Customer</string>
+    <string name="recent_sales">Recent Sales</string>
+    <string name="no_recent_sales">No recent sales found</string>
+
+    <!-- Medicine -->
+    <string name="medicine_name">Medicine Name</string>
+    <string name="medicine_id">Medicine ID</string>
+    <string name="category">Category</string>
+    <string name="manufacturer">Manufacturer</string>
+    <string name="batch_number">Batch Number</string>
+    <string name="purchase_price">Purchase Price</string>
+    <string name="selling_price">Selling Price</string>
+    <string name="quantity">Quantity</string>
+    <string name="min_stock_level">Minimum Stock Level</string>
+    <string name="mfg_date">Manufacturing Date</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="supplier">Supplier</string>
+    <string name="description">Description</string>
+    <string name="save_medicine">Save Medicine</string>
+    <string name="edit_medicine">Edit Medicine</string>
+    <string name="delete_medicine">Delete Medicine</string>
+    <string name="delete_confirm_medicine">Are you sure you want to delete this medicine?</string>
+    <string name="search_medicines_hint">Search medicines...</string>
+    <string name="no_medicines_found">No medicines found</string>
+
+    <!-- Inventory -->
+    <string name="in_stock">In Stock</string>
+    <string name="out_of_stock">Out of Stock</string>
+    <string name="expiring_soon">Expiring Soon</string>
+    <string name="filter_all">All</string>
+
+    <!-- Sales & Billing -->
+    <string name="generate_bill">GENERATE BILL</string>
+    <string name="invoice_number">Invoice Number</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="customer_phone">Customer Phone</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="cart">Cart</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="discount">Discount (%)</string>
+    <string name="gst">GST (12%)</string>
+    <string name="grand_total">Grand Total</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="cash">Cash</string>
+    <string name="upi">UPI</string>
+    <string name="card">Card</string>
+
+    <!-- Purchase -->
+    <string name="purchase_id">Purchase ID</string>
+    <string name="save_purchase">Save Purchase</string>
+    <string name="no_purchases_found">No purchases found</string>
+
+    <!-- Common Actions -->
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="confirm">Confirm</string>
+    <string name="success">Operation completed successfully</string>
+    <string name="error">An error occurred</string>
+</resources>
